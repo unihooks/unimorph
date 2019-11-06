@@ -1,0 +1,49 @@
+{
+  "name": "remorph",
+  "version": "1.0.0",
+  "description": "React/preact-based morphdom",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test",
+    "start": "parcel serve --no-hmr test/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dy/remorph.git"
+  },
+  "keywords": [
+    "react",
+    "preact",
+    "morph",
+    "morphdom",
+    "diffhtml",
+    "dom-diff",
+    "nanomorph"
+  ],
+  "author": "Dmitry Ivanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dy/remorph/issues"
+  },
+  "homepage": "https://github.com/dy/remorph#readme",
+  "devDependencies": {
+    "nanohtml": "^1.9.0",
+    "parcel": "^1.12.4",
+    "preact": "^10.0.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "tape": "^4.11.0"
+  },
+  "peerDependencies": {
+    "preact": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "dependencies": {
+    "html": "^1.0.0",
+    "html-element-to-react": "^0.4.4"
+  }
+}

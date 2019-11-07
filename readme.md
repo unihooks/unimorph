@@ -1,6 +1,6 @@
 # remorph [![Build Status](https://travis-ci.org/dy/remorph.svg?branch=master)](https://travis-ci.org/dy/remorph) [![unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](http://github.com/badges/stability-badges)
 
-React/preact-based morpher with [nanomorph](https://github.com/choojs/nanomorph)/[morphdom](https://ghub.io/morphdom)-compatible API.
+React/preact-based DOM morpher with [nanomorph](https://github.com/choojs/nanomorph)/[morphdom](https://ghub.io/morphdom)-compatible API.
 
 [![NPM](https://nodei.co/npm/remorph.png?mini=true)](https://nodei.co/npm/remorph/)
 

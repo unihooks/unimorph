@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/dy/remorph#readme",
   "devDependencies": {
+    "math-random-seed": "^2.0.0",
     "nanohtml": "^1.9.0",
     "parcel": "^1.12.4",
     "preact": "^10.0.4",

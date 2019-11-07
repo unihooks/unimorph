@@ -1,6 +1,6 @@
 import convert from './html-to-jsx'
-
 const cache = new WeakMap()
+
 export default function morph(fromHTML, toHTML) {
   let root, placeholder = document.createTextNode(''), fromRoot = fromHTML.parentNode
 
@@ -10,9 +10,10 @@ export default function morph(fromHTML, toHTML) {
     cache.set(fromHTML, root = document.createDocumentFragment())
     // hydrate root to enable react/preact patching
     // FIXME: here can be required trimming to avoid react error
-    let initVDOM = convert.call(this, fromHTML)
+    let initVDOM = convert.call(this, fromHTML, true)
     if (fromRoot) fromHTML.replaceWith(placeholder)
     root.appendChild(fromHTML)
+
     this.hydrate(initVDOM, root)
   }
   else {
@@ -20,7 +21,6 @@ export default function morph(fromHTML, toHTML) {
     if (fromRoot) fromHTML.replaceWith(placeholder)
     root.appendChild(fromHTML)
   }
-
   this.render(toVDOM, root)
 
   // attached DOM

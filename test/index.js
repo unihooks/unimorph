@@ -1,5 +1,5 @@
-import morph from '..'
-// import morph from '../preact'
+// import morph from '..'
+import morph from '../preact'
 import t from 'tape'
 import html from 'nanohtml'
 
@@ -34,5 +34,6 @@ t('hydration', t => {
   t.end()
 })
 
-// require('./diff.js')
+require('./diff.js')
 require('./events.js')
+require('./fuzz.js')

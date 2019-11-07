@@ -1,5 +1,5 @@
-import morph from '..'
-// import morph from '../preact'
+// import morph from '..'
+import morph from '../preact'
 import t from 'tape'
 import html from 'nanohtml'
 

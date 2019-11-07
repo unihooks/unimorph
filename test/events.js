@@ -1,6 +1,8 @@
 import t from 'tape'
 import html from 'nanohtml'
-import morph from '..'
+// import morph from '..'
+// FIXME React is not supported since it ignores native dispatched events
+import morph from '../preact'
 
 
 function raiseEvent (element, eventName) {
@@ -40,7 +42,6 @@ t('should not copy onabort events', function (t) {
   let a = html`<input onabort=${fail}></input>`
   let b = html`<input></input>`
   let res = morph(a, b)
-  console.log(res, res.onabort)
 
   raiseEvent(res, 'abort')
 
@@ -1465,7 +1466,7 @@ t('should have onselect events (html attribute) ', function (t) {
 
   t.equal(expectationMet, true, 'result was expected')
 })
-t.only('should not copy onselect events', function (t) {
+t('should not copy onselect events', function (t) {
   t.plan(1)
   let expectationMet = true
   let a = html`<input onselect=${fail}></input>`

@@ -8,19 +8,21 @@ const EVT_MAP = {
   'onsuspend': 'onSuspend'
 }
 
-function getProps(el) {
+function getProps(el, hydrate) {
   let props = {}, events = {}
 
   // collect events
   for (let prop in el) {
     if (!el[prop]) continue
 
-    if (EVT_MAP[prop]) events[EVT_MAP[prop]] = el[prop]
+    if (EVT_MAP[prop]) {
+      events[EVT_MAP[prop]] = el[prop]
+      el[prop] = null
+    }
     else if (/^on/.test(prop)) {
       let cam = 'on' + prop[2].toUpperCase() + prop.slice(3)
       cam = cam
         .replace('fullscreen', 'Fullscreen')
-        .replace('Dbl', 'Double')
         .replace('change', 'Change')
         .replace('update', 'Update')
         .replace('click', 'Click')
@@ -41,6 +43,9 @@ function getProps(el) {
         .replace(/up$/, 'Up')
         .replace(/end$/, 'End')
       events[cam] = el[prop]
+
+      // clear up events prior to hydration, they're going to be re-added
+      el[prop] = null
     }
   }
 
@@ -98,11 +103,11 @@ function getProps(el) {
   return Object.assign(props, events);
 }
 
-export default function convert (el) {
+export default function convert (el, hydrate) {
     if (!el) return null;
     if (el.nodeType === 3) return el.textContent
 
-    let props = getProps(el)
+    let props = getProps(el, hydrate)
 
     let children = []
     for (let i = 0; i < el.childNodes.length; i++) {
@@ -112,7 +117,7 @@ export default function convert (el) {
           children.push(child.textContent);
         }
         else if (child.nodeType === 1) {
-          let childProps = getProps(child)
+          let childProps = getProps(child, hydrate)
           if (childProps.selected) {
             props.value = child.value
             if (!props.onChange) props.onChange = () => {}

@@ -1,7 +1,5 @@
 // fork of https://github.com/shaaijs/html-element-to-react
 // FIXME: remove once https://github.com/shaaijs/html-element-to-react/issues/5 is fixed
-import React from "react";
-
 const EVT = {
   'onlostpointercapture': 'onLostPointerCapture',
   'ongotpointercapture': 'onGotPointerCapture',
@@ -69,6 +67,8 @@ function getProps(el) {
       if (ref) {
         if (selected) ref.setAttribute('selected', selected)
         else ref.removeAttribute('selected')
+        // preact-compat
+        if (!ref.getAttribute('value')) ref.removeAttribute('value')
       }
     }
   }
@@ -119,17 +119,17 @@ export default function convert (el) {
             delete childProps.selected
           }
           children.push(
-            React.createElement(
+            this.createElement(
               child.tagName.toLowerCase(),
               childProps,
-              [ ...child.childNodes ].map(convert)
+              [ ...child.childNodes ].map(convert, this)
             )
           )
         }
     }
 
-    return React.createElement(
-        el.tagName ? el.tagName.toLowerCase() : React.Fragment,
+    return this.createElement(
+        el.tagName ? el.tagName.toLowerCase() : this.Fragment,
         props,
         ...children
     );

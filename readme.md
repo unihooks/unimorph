@@ -22,16 +22,14 @@ _Remorph_ can morph both to JSX or raw HTML. It works with react by default, pre
 ```js
 import morph from 'remorph/preact'
 
-let result = morph(from, to)
+let result = morph(fromElement, toElementOrJSX)
 ```
-
-## Use-cases
 
 ## See also
 
 * [enhook](https://ghub.io/enhook) - enable react/preact/etc hooks for any function.
 * [spect](https://ghub.io/spect) - reactive aspect-oriented UI framework.
-* [jquery-react](https://ghub.io/jquery-react) - connect react to jquery with ease.
+<!-- * [jquery-react](https://ghub.io/jquery-react) - connect react to jquery with ease. -->
 
 
 ## License

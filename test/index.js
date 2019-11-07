@@ -214,7 +214,7 @@ t.skip('disallow document fragments', function (t) {
   t.end()
 })
 
-t('allow document fragments', function (t) {
+t.skip('allow document fragments', function (t) {
   var a = html`<div>a</div>`
   var b = html`<div>a</div><div>b</div>`
 
@@ -339,14 +339,16 @@ t.skip('nested: should update child nodes', function (t) {
 
 t('if new tree has no value and old tree does, remove value', function (t) {
   t.plan(4)
-  var a = html`<input type="text" value="howdy" />`
-  var b = html`<input type="text" />`
-  var res = morph(a, b)
+  var a, b, res
+  a = html`<input type="text" value="howdy" />`
+  b = html`<input type="text" />`
+  res = morph(a, b)
   t.equal(res.getAttribute('value'), null)
   t.equal(res.value, '')
 
   a = html`<input type="text" value="howdy" />`
   b = html`<input type="text" value=${null} />`
+
   res = morph(a, b)
   t.equal(res.getAttribute('value'), null)
   t.equal(res.value, '')
@@ -354,9 +356,10 @@ t('if new tree has no value and old tree does, remove value', function (t) {
 
 t('if new tree has value and old tree does too, set value from new tree', function (t) {
   t.plan(4)
-  var a = html`<input type="text" value="howdy" />`
-  var b = html`<input type="text" value="hi" />`
-  var res = morph(a, b)
+  var a, b, res
+  a = html`<input type="text" value="howdy" />`
+  b = html`<input type="text" value="hi" />`
+  res = morph(a, b)
   t.equal(res.value, 'hi')
 
   a = html`<input type="text"/>`
@@ -364,6 +367,7 @@ t('if new tree has value and old tree does too, set value from new tree', functi
   b = html`<input type="text"/>`
   b.value = 'hi'
   res = morph(a, b)
+
   t.equal(res.value, 'hi')
 
   a = html`<input type="text" value="howdy"/>`
@@ -514,7 +518,6 @@ t('should replace nodes after multiple iterations', function (t) {
 
   b = html`<ul><div>1</div><li>2</li><p>3</p><li>4</li><li>5</li></ul>`
   expected = b.outerHTML
-
   a = morph(a, b)
   t.equal(a.outerHTML, expected, 'result was expected')
   t.end()

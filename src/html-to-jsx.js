@@ -1,6 +1,6 @@
 // fork of https://github.com/shaaijs/html-element-to-react
 // FIXME: remove once https://github.com/shaaijs/html-element-to-react/issues/5 is fixed
-const EVT = {
+const EVT_MAP = {
   'onlostpointercapture': 'onLostPointerCapture',
   'ongotpointercapture': 'onGotPointerCapture',
   'onloadeddata': 'onLoadedData',
@@ -13,34 +13,34 @@ function getProps(el) {
 
   // collect events
   for (let prop in el) {
-    if (el[prop] && /^on/.test(prop)) {
-      if (EVT[prop]) events[EVT[prop]] = el[prop]
-      else {
-        let cam = 'on' + prop[2].toUpperCase() + prop.slice(3)
-        cam = cam
-          .replace('fullscreen', 'Fullscreen')
-          .replace('Dbl', 'Double')
-          .replace('change', 'Change')
-          .replace('update', 'Update')
-          .replace('click', 'Click')
-          .replace('error', 'Error')
-          .replace('out', 'Out')
-          .replace('over', 'Over')
-          .replace('move', 'Move')
-          .replace('leave', 'Leave')
-          .replace('enter', 'Enter')
-          .replace('cancel', 'Cancel')
-          .replace('start', 'Start')
-          .replace('press', 'Press')
-          .replace('play', 'Play')
-          .replace('through', 'Through')
-          .replace('down', 'Down')
-          .replace('menu', 'Menu')
-          .replace('wheel', 'Wheel')
-          .replace(/up$/, 'Up')
-          .replace(/end$/, 'End')
-        events[cam] = el[prop]
-      }
+    if (!el[prop]) continue
+
+    if (EVT_MAP[prop]) events[EVT_MAP[prop]] = el[prop]
+    else if (/^on/.test(prop)) {
+      let cam = 'on' + prop[2].toUpperCase() + prop.slice(3)
+      cam = cam
+        .replace('fullscreen', 'Fullscreen')
+        .replace('Dbl', 'Double')
+        .replace('change', 'Change')
+        .replace('update', 'Update')
+        .replace('click', 'Click')
+        .replace('error', 'Error')
+        .replace('out', 'Out')
+        .replace('over', 'Over')
+        .replace('move', 'Move')
+        .replace('leave', 'Leave')
+        .replace('enter', 'Enter')
+        .replace('cancel', 'Cancel')
+        .replace('start', 'Start')
+        .replace('press', 'Press')
+        .replace('play', 'Play')
+        .replace('through', 'Through')
+        .replace('down', 'Down')
+        .replace('menu', 'Menu')
+        .replace('wheel', 'Wheel')
+        .replace(/up$/, 'Up')
+        .replace(/end$/, 'End')
+      events[cam] = el[prop]
     }
   }
 

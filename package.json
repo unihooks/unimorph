@@ -42,8 +42,5 @@
     "react": "*",
     "react-dom": "*"
   },
-  "dependencies": {
-    "html": "^1.0.0",
-    "html-element-to-react": "^0.4.4"
-  }
+  "dependencies": {}
 }

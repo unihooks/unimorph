@@ -3,7 +3,6 @@ import morph from '..'
 import t from 'tape'
 import html from 'nanohtml'
 
-
 Object.defineProperty(DocumentFragment.prototype, 'outerHTML', {
   get() {
     let str = '<>'
@@ -12,7 +11,6 @@ Object.defineProperty(DocumentFragment.prototype, 'outerHTML', {
     return str
   }
 })
-
 
 t('base', t => {
   let frag = document.createDocumentFragment()
@@ -36,6 +34,5 @@ t('hydration', t => {
   t.end()
 })
 
-
-require('./diff.js')
+// require('./diff.js')
 require('./events.js')

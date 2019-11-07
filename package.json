@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node test",
+    "test": "node -r esm -r browser-env/register test",
     "start": "parcel serve --no-hmr test/index.html"
   },
   "repository": {
@@ -30,6 +30,8 @@
   },
   "homepage": "https://github.com/dy/remorph#readme",
   "devDependencies": {
+    "browser-env": "^3.3.0",
+    "esm": "^3.2.25",
     "math-random-seed": "^2.0.0",
     "nanohtml": "^1.9.0",
     "parcel": "^1.12.4",

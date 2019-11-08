@@ -17,7 +17,7 @@ el = morph(el, <div>teeny, tiny, tin bottle</div>)
 // <div>teeny, tiny, tin bottle</div>
 ```
 
-_Remorph_ can morph both to JSX or raw HTML. It works with react by default, preact entry can be used as:
+_Remorph_ can morph both to JSX or raw HTML. It works with react by default, preact can be used via `preact/compat` or directly as:
 
 ```js
 import morph from 'remorph/preact'

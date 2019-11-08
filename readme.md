@@ -5,7 +5,7 @@ React/preact-based DOM morpher with [nanomorph](https://github.com/choojs/nanomo
 [![NPM](https://nodei.co/npm/@dy/remorph.png?mini=true)](https://nodei.co/npm/@dy/remorph/)
 
 ```js
-import morph from 'remorph'
+import morph from '@dy/remorph'
 
 var el = document.createElement('div')
 el.innerHTML = 'hello people'
@@ -20,7 +20,7 @@ el = morph(el, <div>teeny, tiny, tin bottle</div>)
 _Remorph_ can morph both to JSX or raw HTML. It works with react by default, preact can be used via `preact/compat` or directly as:
 
 ```js
-import morph from 'remorph/preact'
+import morph from '@dy/remorph/preact'
 
 let result = morph(fromElement, toElementOrJSX)
 ```

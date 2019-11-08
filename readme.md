@@ -2,7 +2,7 @@
 
 React/preact-based DOM morpher with [nanomorph](https://github.com/choojs/nanomorph)/[morphdom](https://ghub.io/morphdom)-compatible API.
 
-[![NPM](https://nodei.co/npm/remorph.png?mini=true)](https://nodei.co/npm/remorph/) (will be released to npm November 28)
+[![NPM](https://nodei.co/npm/@dy/remorph.png?mini=true)](https://nodei.co/npm/@dy/remorph/)
 
 ```js
 import morph from 'remorph'

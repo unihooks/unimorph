@@ -1,5 +1,5 @@
 {
-  "name": "remorph",
+  "name": "@dy/remorph",
   "version": "1.0.0",
   "description": "React/preact-based morphdom",
   "main": "index.js",

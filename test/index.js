@@ -37,3 +37,4 @@ t('hydration', t => {
 require('./diff.js')
 require('./events.js')
 require('./fuzz.js')
+// require('./input.js')

@@ -14,7 +14,7 @@ t('chaos monkey #1', function (t) {
 
 // modeled after
 // https://github.com/mafintosh/hypercore/blob/master/test/tree-index.js
-var random = seed('spect')
+var random = seed('xxx')
 var props = null
 t('fuzz tests', function (t) {
   var a, b

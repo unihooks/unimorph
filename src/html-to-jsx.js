@@ -12,7 +12,8 @@ function getProps(el, hydrate) {
   let props = {}, events = {}
 
   // collect events
-  for (let prop in el) {
+  let proto = el.constructor.prototype
+  for (let prop in proto) {
     if (!el[prop]) continue
 
     if (EVT_MAP[prop]) {

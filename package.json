@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "React/preact-based morphdom",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
